@@ -1,2 +1,2 @@
-!/dik/*.php
-/dik/*
+.env
+.database.php
