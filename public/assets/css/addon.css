@@ -1,0 +1,13 @@
+.table-sexy
+{
+  width: 68%;
+}
+thead, tbody {
+  display: block;
+}
+tbody
+{
+  height: 350px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
