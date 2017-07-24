@@ -5,6 +5,7 @@ namespace Modules\Category\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\Category\Models\Category;
 
 class CategoryController extends Controller
 {
@@ -14,7 +15,21 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('category::index');
+        $data = Category::orderBy('category_name', 'ASC')->where('created_by', '=', 1)->get()->toArray();
+        return view('category::index')
+              ->with('data', $data);
+    }
+
+    public function detail($id)
+    {
+        $data = Category::select('category_name')->orderBy('category_name', 'ASC')->get()->toArray();
+        foreach ($data as $key => $value) {
+          print_r(strtolower(str_replace(' ', '-', $value['category_name'])));
+
+          echo "<pre>"; ; exit();
+        }
+        return view('category::detail')
+              ->with('data', $data);
     }
 
     /**

@@ -11,11 +11,11 @@
 
 	<body>
 
-		<div class="col-md-100">
+		<div>
 				@include('themes.eventually.html.menu')
 		</div>
 
-		<div class="col-md-100">
+		<div>
 				@yield('content')
 		</div>
 
