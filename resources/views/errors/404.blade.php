@@ -13,12 +13,13 @@
 
 <style>
 body {
+  background-color: #000 !important;
   color: #1a1a1a;
   text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
 }
 body::before {
   content: "";
-  opacity: 0.5;
+  opacity: 0.25;
 	position: fixed;
 	width: 100%;
 	height: 100%;

@@ -177,6 +177,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /* Module package */
+        ArtemSchander\L5Modular\ModuleServiceProvider::class,
+
     ],
 
     /*

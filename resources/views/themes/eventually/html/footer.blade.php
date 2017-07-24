@@ -7,6 +7,6 @@
     <li></li>
   </ul>
   <ul class="copyright">
-    <li>&copy;<?php echo date("Y") ?> Kirino Sexy - Adik Perempuan Seksi</li><li>Diperkawaii oleh HTML5UP</li>
+    <li>&copy; <?php echo date("Y"); ?> Kirino Sexy - Adik Perempuan Seksi</li><li>Diperkawaii oleh HTML5UP</li>
   </ul>
 </footer>
