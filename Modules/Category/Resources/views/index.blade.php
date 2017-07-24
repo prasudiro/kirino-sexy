@@ -1,10 +1,12 @@
 @extends('themes.eventually.eventually')
 
 @section('content')
-    <h1>Hello World</h1>
 
-    <p>
-        This view is loaded from module: {!! config('category.name') !!}
-    </p>
-    wkwkw <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div class="col-md-6">
+
+      @foreach($data as $row)
+        <a href="{{ url('category') }}/{{ strtolower(str_replace(' ', '-', $row['category_name'])) }}" title="{{ $row['category_name']}}">{{ $row['category_name'] }}</a><br>
+      @endforeach
+</div>
+
 @stop
