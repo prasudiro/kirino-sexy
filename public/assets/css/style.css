@@ -102,7 +102,8 @@
 		-webkit-justify-content: center;
 		-ms-justify-content: center;
 		justify-content: center;
-		background-color: #000;
+		background-color: #000 !important;
+		color: white !important;
 		padding: 6em 4em 4em 4em;
 	}
 
@@ -1106,10 +1107,19 @@
 	-webkit-transition: opacity 0.5s ease-in-out;
 	-ms-transition: opacity 0.5s ease-in-out;
 	transition: opacity 0.5s ease-in-out;
-	bottom: 7.5em;
 	color: rgba(255, 255, 255, 0.5);
-	left: 2em;
-	position: absolute;
+	margin-bottom:30px;
+	left:-30px;
+}
+
+#menu .menu-button {
+	width: 90px;
+}
+
+@media screen and (max-width: 480px) {
+	#menu .menu-button {
+		width: 100%;
+	}
 }
 
 /* Footer */
@@ -1119,11 +1129,8 @@
 		-webkit-transition: opacity 0.5s ease-in-out;
 		-ms-transition: opacity 0.5s ease-in-out;
 		transition: opacity 0.5s ease-in-out;
-		bottom: 4em;
 		color: rgba(255, 255, 255, 0.5);
-		left: 4em;
 		opacity: 0.5;
-		position: absolute;
 	}
 
 		#footer .icons {
