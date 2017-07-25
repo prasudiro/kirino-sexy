@@ -23,7 +23,7 @@ class DdlApi
 	//list all data
 	function ListData($conditions=array(), $order_column='file_id', $order_type='asc')
 	{
-		$data 	= $this->$model_ddl::leftjoin('category', 'category.category_id', '=', $this->table.'.'.$this->table.'_category')
+		$data 	= $this->model_ddl::leftjoin('category', 'category.category_id', '=', $this->table.'.'.$this->table.'_category')
 									 ->where($conditions)
 									 ->orderBy($order_column, $order_type)
 									 ->get()
