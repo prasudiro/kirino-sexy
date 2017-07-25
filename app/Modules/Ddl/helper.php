@@ -3,10 +3,11 @@
 class DdlApi
 {
 	//call all available model
-	var $model_ddl = 'App\Modules\Ddl\Models\Ddl';
+	var $model = 'App\Modules\Ddl\Models\Ddl';
 
 	//call current raw table
 	var $table 		= 'file';
+	var $module   = 'Ddl';
 
 	//call all additional config on config/settings.php
 	public function __construct()
@@ -23,7 +24,8 @@ class DdlApi
 	//list all data
 	function ListData($conditions=array(), $order_column='file_id', $order_type='asc')
 	{
-		$data 	= $this->model_ddl::leftjoin('category', 'category.category_id', '=', $this->table.'.'.$this->table.'_category')
+		$model  = $this->model;
+		$data 	= $model::leftjoin('category', 'category.category_id', '=', $this->table.'.'.$this->table.'_category')
 									 ->where($conditions)
 									 ->orderBy($order_column, $order_type)
 									 ->get()
