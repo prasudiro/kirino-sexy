@@ -43,16 +43,16 @@ class DdlController extends Controller {
 	{
 		$data = $this->module_api->GetData($id, $file, 'file_name', 'asc');
 
-		// if (!isset($_SERVER['HTTP_REFERER']))
-		// {
-		// 	return redirect('ddl')->with('msg_error', '<b style="line-height:30px;">BA-BAKA! Bukan berarti boleh Hotlinking!</b>');
-		// }
+		if (!isset($_SERVER['HTTP_REFERER']))
+		{
+			return redirect('ddl')->with('msg_error', '<b style="line-height:30px;">BA-BAKA! Bukan berarti boleh Hotlinking!</b>');
+		}
 
-		// $referer = stripos($_SERVER['HTTP_REFERER'], 'moesubs.com');
-		// if ($referer == FALSE)
-		// {
-		// 	return redirect('ddl')->with('msg_error', '<b style="line-height:30px;">BA-BAKA! Bukan berarti boleh Hotlinking!</b>');
-		// }
+		$referer = stripos($_SERVER['HTTP_REFERER'], 'moesubs.com');
+		if ($referer == FALSE)
+		{
+			return redirect('ddl')->with('msg_error', '<b style="line-height:30px;">BA-BAKA! Bukan berarti boleh Hotlinking!</b>');
+		}
 
 		if (count($data)==0) 
 		{
