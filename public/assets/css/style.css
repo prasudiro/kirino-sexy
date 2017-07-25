@@ -293,16 +293,17 @@
 		-webkit-transition: border-bottom-color 0.2s ease, color 0.2s ease;
 		-ms-transition: border-bottom-color 0.2s ease, color 0.2s ease;
 		transition: border-bottom-color 0.2s ease, color 0.2s ease;
-		border-bottom: dotted 1px rgba(255, 255, 255, 0.25);
-		color: #1cb495;
+		border-bottom: dotted 1px rgba(255, 255, 255, 0.5);
+		color: white !important;
 		text-decoration: none;
 	}
 
-		a:hover {
-			border-bottom-color: transparent;
-			color: yellow !important;
-			text-decoration: none;
-		}
+	a:hover {
+		border-bottom-color: transparent;
+		border-bottom: dotted 1px yellow;
+		color: yellow !important;
+		text-decoration: none !important;
+	}
 
 	strong, b {
 		color: #fff;

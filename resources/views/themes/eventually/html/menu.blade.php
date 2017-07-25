@@ -3,7 +3,7 @@
     <a href="{{ url('/') }}" class="btn btn-warning menu-button"><b>Beranda</b></a>
   </div>
   <div class="col-md-1">
-    <a href="{{ url('/') }}" class="btn btn-warning menu-button"><b>XDCC</b></a>
+    <a href="{{ url('xdcc') }}" class="btn btn-warning menu-button"><b>XDCC</b></a>
   </div>
   <div class="col-md-1">
     <a href="{{ url('ddl') }}" class="btn btn-warning menu-button"><b>DDL</b></a>

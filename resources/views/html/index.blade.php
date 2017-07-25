@@ -1,4 +1,4 @@
-@extends('themes.eventually.eventually')
+@extends('themes.eventually.index')
 @section('content')
 <header id="header" style="margin-bottom:20px;">
   <h1><b>Kirino Sexy</b></h1>
