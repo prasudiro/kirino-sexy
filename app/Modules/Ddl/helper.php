@@ -34,4 +34,16 @@ class DdlApi
 		return $data;
 	}
 
+	//get single data
+	function GetData($conditions=array(), $order_column='file_id', $order_type='asc')
+	{
+		$model  = $this->model;
+		$data 	= $model::leftjoin('category', 'category.category_id', '=', $this->table.'.'.$this->table.'_category')
+									 ->where($conditions)
+									 ->orderBy($order_column, $order_type)
+									 ->first();
+
+		return $data;
+	}
+
 }

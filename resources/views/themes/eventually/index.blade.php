@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Kirino Sexy - Adik Perempuan Seksi</title>
+		<title>@yield('title') Kirino Sexy - Adik Perempuan Seksi</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="shortcut icon" type="image/icon" href="{{ url('assets/images/favicon_001.jpg') }}">

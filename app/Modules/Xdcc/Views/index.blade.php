@@ -1,5 +1,9 @@
 @extends('themes.eventually.index')
 
+@section('title')
+	XDCC |
+@endsection
+
 @section('content')
 
 <div class="col-md-9" style="margin-left:-45px; margin-top: -40px">

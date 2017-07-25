@@ -9,7 +9,7 @@
     <a href="{{ url('ddl') }}" class="btn btn-warning menu-button"><b>DDL</b></a>
   </div>
   <div class="col-md-1">
-    <a href="{{ url('/') }}" class="btn btn-warning menu-button"><b>Torrent</b></a>
+    <a href="https://udel.kirino.sexy/" target="_blank" class="btn btn-warning menu-button"><b>Torrent</b></a>
   </div>
   <div class="col-md-1">
     <a href="{{ url('/') }}" class="btn btn-warning menu-button"><b>Bantuan</b></a>

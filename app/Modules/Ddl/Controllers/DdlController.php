@@ -38,4 +38,28 @@ class DdlController extends Controller {
 					 ->with('data', $data);
 	}
 
+	//detail file of kirino.sexy/ddl/id
+	public function show($id)
+	{
+		if (!isset($_SERVER['HTTP_REFERER']))
+		{
+			return redirect('ddl')->with('error', 'BA-BAKA! Hotlinking is not allowed!');
+		}
+
+		$referer = stripos($_SERVER['HTTP_REFERER'], 'moesubs.com');
+		if ($referer == TRUE)
+		{
+			echo "ok";
+		}
+		else
+		{
+			echo "salah";
+		}
+		exit();
+		$data = $this->module_api->GetData(array('file_id' => $id), 'file_name', 'asc');
+
+		return view($this->module."::detail")
+					 ->with('data', $data);
+	}
+
 }
