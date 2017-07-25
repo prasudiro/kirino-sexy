@@ -8,7 +8,7 @@
       <tbody>
       @foreach ($data as $row)
 	      <tr>
-	      <?php 
+	      <?php
 	       $unit = substr($row['file_size'], -2);
 	       if ($unit == 'MB') 
 	       {
