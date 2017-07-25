@@ -13,6 +13,7 @@
 		<link rel="stylesheet" href="{{ url('assets/css/addon.css') }}" />
 		<link rel="stylesheet" href="{{ url('assets/css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ url('assets/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ URL('assets/css/toastr.min.css') }}" rel="stylesheet">
     {{-- <link rel="stylesheet" href="{{ url('assets/css/footable.core.css') }}"> --}}
 
     <style type="text/css" media="screen">
@@ -67,7 +68,22 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 		<script src="{{ url('assets/js/footable.all.min.js')}}"></script>
+		<script src="{{ URL('assets/js/toastr.min.js') }}"></script>
 		{{-- <script src="{{ url('assets/js/sexy.js')}}"></script> --}}
+
+		@if (Session::has('msg_error'))
+		<script>
+		  $(document).ready(function() {
+		  toastr.options = {
+		              closeButton: true,
+		              progressBar: true,
+		              positionClass: 'toast-bottom-right',
+		              onclick: null
+		          };
+		  toastr.error('{!! Session::get('msg_error') !!}');
+		  });
+		</script>
+		@endif
 
 		<script>
 

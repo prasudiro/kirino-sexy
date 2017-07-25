@@ -39,24 +39,25 @@ class DdlController extends Controller {
 	}
 
 	//detail file of kirino.sexy/ddl/id
-	public function show($id)
+	public function show($id="", $file="")
 	{
-		if (!isset($_SERVER['HTTP_REFERER']))
-		{
-			return redirect('ddl')->with('error', 'BA-BAKA! Hotlinking is not allowed!');
-		}
+		$data = $this->module_api->GetData($id, $file, 'file_name', 'asc');
 
-		$referer = stripos($_SERVER['HTTP_REFERER'], 'moesubs.com');
-		if ($referer == TRUE)
+		// if (!isset($_SERVER['HTTP_REFERER']))
+		// {
+		// 	return redirect('ddl')->with('msg_error', '<b style="line-height:30px;">BA-BAKA! Bukan berarti boleh Hotlinking!</b>');
+		// }
+
+		// $referer = stripos($_SERVER['HTTP_REFERER'], 'moesubs.com');
+		// if ($referer == FALSE)
+		// {
+		// 	return redirect('ddl')->with('msg_error', '<b style="line-height:30px;">BA-BAKA! Bukan berarti boleh Hotlinking!</b>');
+		// }
+
+		if (count($data)==0) 
 		{
-			echo "ok";
+			return redirect('ddl')->with('msg_error', '<b style="line-height:30px;">BA-BAKA! Bukan berarti tautannya benar!</b>');
 		}
-		else
-		{
-			echo "salah";
-		}
-		exit();
-		$data = $this->module_api->GetData(array('file_id' => $id), 'file_name', 'asc');
 
 		return view($this->module."::detail")
 					 ->with('data', $data);
