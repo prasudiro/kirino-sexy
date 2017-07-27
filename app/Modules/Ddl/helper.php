@@ -35,11 +35,11 @@ class DdlApi
 	}
 
 	//get single data
-	function GetData($id="", $file="", $order_column="file_id", $order_type="asc")
+	function GetData($id="", $file="", $conditions, $order_column="file_id", $order_type="asc")
 	{
 		$model  = $this->model;
 		$data 	= $model::leftjoin("category", "category.category_id", "=", $this->table.".".$this->table."_category")
-									 ->where("file_id", "=", $id)
+									 ->where($conditions)
 									 ->orderBy($order_column, $order_type)
 									 ->first()
 									 ->toArray();
@@ -48,7 +48,7 @@ class DdlApi
 
 		 $name = strtolower(str_replace(" ", "-", $data['file_name']));
 
-		 if ($name == $file) 
+		 if ($name == $file)
 		 {
 		 	$data['file_slug'] = $name;
 		 }

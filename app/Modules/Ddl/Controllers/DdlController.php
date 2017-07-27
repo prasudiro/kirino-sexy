@@ -33,7 +33,7 @@ class DdlController extends Controller {
 	public function index()
 	{
 		$data = $this->module_api->ListData(array(), 'file_name', 'asc');
-
+		
 		return view($this->module."::index")
 					 ->with('data', $data);
 	}
@@ -41,7 +41,8 @@ class DdlController extends Controller {
 	//detail file of kirino.sexy/ddl/id
 	public function show($id="", $file="")
 	{
-		$data = $this->module_api->GetData($id, $file, 'file_name', 'asc');
+		$conditions = array("file_id" => $id);
+		$data 			= $this->module_api->GetData($id, $file, $conditions, 'file_name', 'asc');
 
 		if (!isset($_SERVER['HTTP_REFERER']))
 		{
@@ -54,7 +55,7 @@ class DdlController extends Controller {
 			return redirect('ddl')->with('msg_error', '<b style="line-height:30px;">BA-BAKA! Bukan berarti boleh Hotlinking!</b>');
 		}
 
-		if (count($data)==0) 
+		if (count($data)==0)
 		{
 			return redirect('ddl')->with('msg_error', '<b style="line-height:30px;">BA-BAKA! Bukan berarti tautannya benar!</b>');
 		}
