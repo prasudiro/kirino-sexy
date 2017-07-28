@@ -92,9 +92,12 @@ class DdlController extends Controller {
   		return view('errors.404');
 		}
 
-print_r($file_location->getClientMimeType()); exit();
+		$headers = array(
+		   'Content-Type: application/octet-stream',
+		   'Content-Length: '. filesize($file_location)
+		);
 
-		return response()->download($file_location);
+		return response()->download($file_location, basename($file_location), $headers));
 	}
 
 }
