@@ -50,21 +50,21 @@ class DdlController extends Controller {
 		$conditions = array("file_id" => $id);
 		$data 			= $this->module_api->GetData($id, $file, $conditions, 'file_name', 'asc');
 
-		// if (!isset($_SERVER['HTTP_REFERER']))
-		// {
-		// 	return redirect('ddl')->with('msg_error', '<b style="line-height:30px;">BA-BAKA! Bukan berarti boleh Hotlinking!</b>');
-		// }
-		//
-		// $referer = stripos($_SERVER['HTTP_REFERER'], 'moesubs.com');
-		// if ($referer == FALSE)
-		// {
-		// 	return redirect('ddl')->with('msg_error', '<b style="line-height:30px;">BA-BAKA! Bukan berarti boleh Hotlinking!</b>');
-		// }
-		//
-		// if (count($data)==0)
-		// {
-		// 	return redirect('ddl')->with('msg_error', '<b style="line-height:30px;">BA-BAKA! Bukan berarti tautannya benar!</b>');
-		// }
+		if (!isset($_SERVER['HTTP_REFERER']))
+		{
+			return redirect('ddl')->with('msg_error', '<b style="line-height:30px;">BA-BAKA! Bukan berarti boleh Hotlinking!</b>');
+		}
+
+		$referer = stripos($_SERVER['HTTP_REFERER'], 'moesubs.com');
+		if ($referer == FALSE)
+		{
+			return redirect('ddl')->with('msg_error', '<b style="line-height:30px;">BA-BAKA! Bukan berarti boleh Hotlinking!</b>');
+		}
+
+		if (count($data)==0)
+		{
+			return redirect('ddl')->with('msg_error', '<b style="line-height:30px;">BA-BAKA! Bukan berarti tautannya benar!</b>');
+		}
 
 		return view($this->module."::detail")
 					 ->with('data', $data);
