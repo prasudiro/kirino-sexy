@@ -29,11 +29,17 @@ class DdlController extends Controller {
 	  $this->module_api   = new DdlApi();
 	}
 
+	//redirect all errors route to 404
+	public function errors()
+	{
+		return view('errors.404');
+	}
+
 	//index of kirino.sexy/ddl
 	public function index()
 	{
 		$data = $this->module_api->ListData(array(), 'file_name', 'asc');
-		
+
 		return view($this->module."::index")
 					 ->with('data', $data);
 	}
@@ -44,24 +50,48 @@ class DdlController extends Controller {
 		$conditions = array("file_id" => $id);
 		$data 			= $this->module_api->GetData($id, $file, $conditions, 'file_name', 'asc');
 
+		// if (!isset($_SERVER['HTTP_REFERER']))
+		// {
+		// 	return redirect('ddl')->with('msg_error', '<b style="line-height:30px;">BA-BAKA! Bukan berarti boleh Hotlinking!</b>');
+		// }
+		//
+		// $referer = stripos($_SERVER['HTTP_REFERER'], 'moesubs.com');
+		// if ($referer == FALSE)
+		// {
+		// 	return redirect('ddl')->with('msg_error', '<b style="line-height:30px;">BA-BAKA! Bukan berarti boleh Hotlinking!</b>');
+		// }
+		//
+		// if (count($data)==0)
+		// {
+		// 	return redirect('ddl')->with('msg_error', '<b style="line-height:30px;">BA-BAKA! Bukan berarti tautannya benar!</b>');
+		// }
+
+		return view($this->module."::detail")
+					 ->with('data', $data);
+	}
+
+	//get download file
+	public function download(Request $request)
+	{
 		if (!isset($_SERVER['HTTP_REFERER']))
 		{
 			return redirect('ddl')->with('msg_error', '<b style="line-height:30px;">BA-BAKA! Bukan berarti boleh Hotlinking!</b>');
 		}
 
-		$referer = stripos($_SERVER['HTTP_REFERER'], 'moesubs.com');
+		$referer = stripos($_SERVER['HTTP_REFERER'], 'kirino');
 		if ($referer == FALSE)
 		{
 			return redirect('ddl')->with('msg_error', '<b style="line-height:30px;">BA-BAKA! Bukan berarti boleh Hotlinking!</b>');
 		}
 
-		if (count($data)==0)
-		{
-			return redirect('ddl')->with('msg_error', '<b style="line-height:30px;">BA-BAKA! Bukan berarti tautannya benar!</b>');
-		}
+		$information 	 = json_decode(base64_decode($request['information']), TRUE);
+		$file_location = '/data1/upload/'.$information['category_folder'].'/'.$information['file_name'];
 
-		return view($this->module."::detail")
-					 ->with('data', $data);
+		if (!file_exists($file_location))
+		{
+  		return view('errors.404');
+		}
+		return response()->download($file_location);
 	}
 
 }

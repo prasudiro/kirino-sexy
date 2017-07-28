@@ -18,6 +18,7 @@ class CreateFileTable extends Migration
              $table->string('file_size');
              $table->integer('file_category');
              $table->string('file_name');
+             $table->integer('file_download')->default('0');
              $table->integer('created_by')->default('1');
              $table->integer('updated_by')->default('1');
              $table->timestamps();

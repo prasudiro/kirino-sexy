@@ -24,7 +24,7 @@
 	       }
 	      ?>
 	      	<td style="border: 0px;" width="10%" class="text-right">{{ $size}}</td>
-	      	<td style="border: 0px;" width="90%"><a href="http://moesubs.com/url/go.php?url={{ url('ddl/'.$row['file_id'].'/'.strtolower(str_replace(" ",  "-", $row["file_name"]))) }}">{{ $row['file_name']}}</a></td>
+	      	<td style="border: 0px;" width="90%"><a href="{{--http://moesubs.com/url/go.php?url=--}}{{ url('ddl/'.$row['file_id'].'/'.strtolower(str_replace("'", "", str_replace(" ",  "-", $row["file_name"])))) }}">{{ $row['file_name']}}</a></td>
 	      </tr>
 			@endforeach
 			</tbody>

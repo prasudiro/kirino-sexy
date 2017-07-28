@@ -41,16 +41,17 @@ class DdlApi
 		$data 	= $model::leftjoin("category", "category.category_id", "=", $this->table.".".$this->table."_category")
 									 ->where($conditions)
 									 ->orderBy($order_column, $order_type)
-									 ->first()
-									 ->toArray();
+									 ->first();
 
 		 // strtolower(str_replace(" ", "-", ""."file.file_name"))
 
-		 $name = strtolower(str_replace(" ", "-", $data['file_name']));
+		 $name = strtolower(str_replace("'", "", str_replace(" ", "-", $data['file_name'])));
 
 		 if ($name == $file)
 		 {
 		 	$data['file_slug'] = $name;
+			$get_file_download = array('file_download' => $data['file_download'] + 1);
+			$update_file_download = $model::where('file_id', '=', $id)->update($get_file_download);
 		 }
 		 else
 		 {
