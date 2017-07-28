@@ -27,7 +27,7 @@ body::before {
   display: block;
 	background-size: cover;
 	background-repeat: no-repeat;
-	background-image: secure_url(), secure_url(https://puu.sh/wblkR.jpg);
+	background-image: url(), url(https://puu.sh/wblkR.jpg);
 	background-position: center center;
 }
 </style>

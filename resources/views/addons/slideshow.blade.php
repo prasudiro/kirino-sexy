@@ -38,7 +38,7 @@ window.addEventListener('load', function() {
         images: {
           // 'assets/images/bg01.jpg': 'center',
           @for ($i = 2; $i < 17; $i++)
-            '{{ secure_url('assets/images/bg'.$i.'.jpg')}}': 'center',
+            '{{ url('assets/images/bg'.$i.'.jpg')}}': 'center',
           @endfor
         },
 
@@ -61,7 +61,7 @@ window.addEventListener('load', function() {
 
       // Create BG.
         $bg = document.createElement('div');
-          $bg.style.backgroundImage = 'secure_url("' + k + '")';
+          $bg.style.backgroundImage = 'url("' + k + '")';
           $bg.style.backgroundPosition = settings.images[k];
           $wrapper.appendChild($bg);
 
