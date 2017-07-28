@@ -73,6 +73,7 @@ class DdlController extends Controller {
 	//get download file
 	public function download(Request $request)
 	{
+
 		if (!isset($_SERVER['HTTP_REFERER']))
 		{
 			return redirect('ddl')->with('msg_error', '<b style="line-height:30px;">BA-BAKA! Bukan berarti boleh Hotlinking!</b>');
@@ -84,20 +85,28 @@ class DdlController extends Controller {
 			return redirect('ddl')->with('msg_error', '<b style="line-height:30px;">BA-BAKA! Bukan berarti boleh Hotlinking!</b>');
 		}
 
+		if (!isset($_GET['token']))
+		{
+			return redirect('ddl')->with('msg_error', '<b style="line-height:30px;">BA-BAKA! Bukan berarti boleh Hotlinking!</b>');
+		}
+
+		$token   = base64_decode($_GET['token']);
+		$expired = date("ymdhis");
+		if ($token < $expired)
+		{
+			return redirect('ddl')->with('msg_error', '<b style="line-height:30px;">BA-BAKA! Bukan berarti tiketnya kedaluwarsa!</b>');
+		}
+
 		$information 	 = json_decode(base64_decode($request['information']), TRUE);
 		$file_location = '/data1/upload/'.$information['category_folder'].'/'.$information['file_name'];
 
-		if (!file_exists($file_location))
-		{
-  		return view('errors.404');
-		}
+		// $headers = array(
+		//    'Content-Type: application/octet-stream',
+		//    'Content-Length: '. filesize($file_location)
+		// );
 
-		$headers = array(
-		   'Content-Type: application/octet-stream',
-		   'Content-Length: '. filesize($file_location)
-		);
-
-		return response()->download($file_location, basename($file_location), $headers);
+		return redirect('http://kousaka.kirino.sexy/'.$information['category_folder'].'/'.$information['file_name']);
+		// return response()->download($file_location, basename($file_location), $headers);
 	}
 
 }
