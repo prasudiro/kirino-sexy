@@ -1,7 +1,7 @@
 @extends('themes.eventually.index')
 
 @section('title')
-	Download File |
+	Download File {{ $data['file_name']}} |
 @endsection
 
 @section('content')
