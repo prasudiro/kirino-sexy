@@ -3,18 +3,18 @@
 		<title>@yield('title') Kirino Sexy - Adik Perempuan Seksi</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="shortcut icon" type="image/icon" href="{{ url('assets/images/favicon_001.jpg') }}">
+    <link rel="shortcut icon" type="image/icon" href="{{ secure_url('assets/images/favicon_001.jpg') }}">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 
     <!-- Style CSS -->
-    <link rel="stylesheet" href="{{ url('assets/css/style.css') }}" />
-		<link rel="stylesheet" href="{{ url('assets/css/addon.css') }}" />
-		<link rel="stylesheet" href="{{ url('assets/css/bootstrap.min.css') }}" />
-    <link rel="stylesheet" href="{{ url('assets/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" href="{{ URL('assets/css/toastr.min.css') }}" rel="stylesheet">
-    {{-- <link rel="stylesheet" href="{{ url('assets/css/footable.core.css') }}"> --}}
+    <link rel="stylesheet" href="{{ secure_url('assets/css/style.css') }}" />
+		<link rel="stylesheet" href="{{ secure_url('assets/css/addon.css') }}" />
+		<link rel="stylesheet" href="{{ secure_url('assets/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ secure_url('assets/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ secure_url('assets/css/toastr.min.css') }}" rel="stylesheet">
+    {{-- <link rel="stylesheet" href="{{ secure_url('assets/css/footable.core.css') }}"> --}}
 
     <style type="text/css" media="screen">
     	::-webkit-scrollbar
@@ -67,9 +67,9 @@
 		<script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-		<script src="{{ url('assets/js/footable.all.min.js')}}"></script>
-		<script src="{{ URL('assets/js/toastr.min.js') }}"></script>
-		{{-- <script src="{{ url('assets/js/sexy.js')}}"></script> --}}
+		<script src="{{ secure_url('assets/js/footable.all.min.js')}}"></script>
+		<script src="{{ secure_url('assets/js/toastr.min.js') }}"></script>
+		{{-- <script src="{{ secure_url('assets/js/sexy.js')}}"></script> --}}
 
 		@include('addons.message')
 		@include('addons.footable')
