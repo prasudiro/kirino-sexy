@@ -91,6 +91,9 @@ class DdlController extends Controller {
 		{
   		return view('errors.404');
 		}
+
+print_r($file_location->getClientMimeType()); exit();
+
 		return response()->download($file_location);
 	}
 
