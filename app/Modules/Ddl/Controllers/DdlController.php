@@ -97,7 +97,7 @@ class DdlController extends Controller {
 		   'Content-Length: '. filesize($file_location)
 		);
 
-		return response()->download($file_location, basename($file_location), $headers));
+		return response()->download($file_location, basename($file_location), $headers);
 	}
 
 }
