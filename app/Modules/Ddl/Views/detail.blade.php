@@ -38,7 +38,7 @@
 			<li><b>Tipe:</b> {{ $data["category_type"]}}</li>
 	    <li><b>Download:</b> {{ $data["file_download"]}}</li>
 	    </ul>
-			<form class="" action="{{ url('action/download?token='.base64_encode(date("ymdhis", strtotime("+2 days"))))}}" method="post">
+			<form class="" action="{{ secure_url('action/download?token='.base64_encode(date("ymdhis", strtotime("+2 days"))))}}" method="post">
 				<input type="hidden" name="information" value="{{ base64_encode(json_encode($data))}}">
 				<button type="submit" class="btn btn-warning btn-lg"><b>Download</b></button>
 			</form>
