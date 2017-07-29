@@ -38,7 +38,7 @@ window.addEventListener('load', function() {
         images: {
           // 'assets/images/bg01.jpg': 'center',
           @for ($i = 2; $i < 17; $i++)
-            '{{ secure_url('assets/images/bg'.$i.'.jpg')}}': 'center',
+            '{{ secure_url('assets/img/bg'.$i.'.jpg')}}': 'center',
           @endfor
         },
 
