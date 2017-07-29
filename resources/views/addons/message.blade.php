@@ -1,5 +1,5 @@
 @if (Session::has('msg_error'))
-<script>
+<script type="text/javascript">
   $(document).ready(function() {
   toastr.options = {
               closeButton: true,

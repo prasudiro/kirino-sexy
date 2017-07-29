@@ -1,4 +1,4 @@
-<script>
+<script type="text/javascript">
 
 //Modal for xdcc
 $(".modalbttn").click(function() {
