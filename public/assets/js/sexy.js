@@ -41,7 +41,7 @@
 						images: {
 							// 'assets/images/bg01.jpg': 'center',
 							@for($i = 2; $i < 17; $i++)
-								'{{ url('assets/images/bg'.$i.'.jpg')}}': 'center',
+								'{{ url('assets/img/bg'.$i.'.jpg')}}': 'center',
 							@endfor
 						},
 

@@ -3,7 +3,7 @@
 		<title>@yield('title') Kirino Sexy - Adik Perempuan Seksi</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="shortcut icon" type="image/icon" href="{{ secure_url('assets/images/favicon_001.jpg') }}">
+    <link rel="shortcut icon" type="image/icon" href="{{ secure_url('assets/img/favicon_001.jpg') }}">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
