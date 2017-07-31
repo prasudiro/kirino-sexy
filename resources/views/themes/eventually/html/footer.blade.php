@@ -1,6 +1,7 @@
 <footer id="footer">
   <ul class="icons">
     <li><a href="http://moesubs.com/" class="icon fa-globe"><span class="label">Website</span></a></li>
+    <li><a href="https://github.com/prasudiro/kirino-sexy" class="icon fa-github"><span class="label">Github</span></a></li>
     <li><a href="https://www.facebook.com/Moesubs" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
     <li><a href="https://twitter.com/moesubs" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
     <li><a href="https://steamcommunity.com/id/prasudiro" class="icon fa-steam"><span class="label">Steam</span></a></li>
