@@ -22,14 +22,15 @@ class XdccApi
 	}
 
 	//list all data
-	function ListData($conditions=array(), $order_column='file_id', $order_type='asc')
+	function ListData($select=array("*"), $conditions=array(), $order_column='file_id', $order_type='asc')
 	{
 		$model  = $this->model;
-		$data 	= $model::where($conditions)
+		$data 	= $model::select($select)
+		               ->where($conditions)
 									 ->orderBy($order_column, $order_type)
 									 ->get()
 									 ->toArray();
-
+		// echo "<pre>"; print_r($data); exit();
 		return $data;
 	}
 

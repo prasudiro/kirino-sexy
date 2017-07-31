@@ -131,7 +131,7 @@ class category_seeder extends Seeder
         ["category_name" => "Golden Time", "category_folder" => "Periode Emas (TV)",  "category_type" => 1,  "created_at" => date("Y-m-d H:i:s"), "updated_at" => date("Y-m-d H:i:s")],
         ["category_name" => "Sakamoto desu ga?", "category_folder" => "Perkenalkan, Aku Sakamoto (TV)",  "category_type" => 1,  "created_at" => date("Y-m-d H:i:s"), "updated_at" => date("Y-m-d H:i:s")],
         ["category_name" => "Akagami no Shirayukihime", "category_folder" => "Putri Salju Berambut Merah (BD)",  "category_type" => 2,  "created_at" => date("Y-m-d H:i:s"), "updated_at" => date("Y-m-d H:i:s")],
-        ["category_name" => "Akagami ni Shirayukihime", "category_folder" => "Putri Salju Berambut Merah (TV)",  "category_type" => 1,  "created_at" => date("Y-m-d H:i:s"), "updated_at" => date("Y-m-d H:i:s")],
+        ["category_name" => "Akagami no Shirayukihime", "category_folder" => "Putri Salju Berambut Merah (TV)",  "category_type" => 1,  "created_at" => date("Y-m-d H:i:s"), "updated_at" => date("Y-m-d H:i:s")],
         ["category_name" => "Kuromukuro", "category_folder" => "Relik Hitam (TV)",  "category_type" => 1,  "created_at" => date("Y-m-d H:i:s"), "updated_at" => date("Y-m-d H:i:s")],
         ["category_name" => "Highschool of The Dead", "category_folder" => "SMA Mayat (BD)",  "category_type" => 2,  "created_at" => date("Y-m-d H:i:s"), "updated_at" => date("Y-m-d H:i:s")],
         ["category_name" => "Sword Art Online", "category_folder" => "Seni Pedang Daring + Edisi Ekstra (TV)",  "category_type" => 1,  "created_at" => date("Y-m-d H:i:s"), "updated_at" => date("Y-m-d H:i:s")],

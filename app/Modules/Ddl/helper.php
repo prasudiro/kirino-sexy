@@ -3,7 +3,8 @@
 class DdlApi
 {
 	//call all available model
-	var $model = 'App\Modules\Ddl\Models\Ddl';
+	var $model 					= 'App\Modules\Ddl\Models\Ddl';
+	var $model_category = 'App\Modules\Category\Models\Category';
 
 	//call current raw table
 	var $table 		= 'file';
@@ -33,6 +34,20 @@ class DdlApi
 		return $data;
 	}
 
+	//list all category
+	function ListCategory($conditions=array(), $order_column='file_id', $order_type='asc')
+	{
+		$model  			  = $this->model;
+		$model_category = $this->model_category;
+
+		$data 	= $model_category::where($conditions)
+									 ->orderBy($order_column, $order_type)
+									 ->get()
+									 ->toArray();
+
+		return $data;
+	}
+
 	//get single data
 	function GetData($id="", $file="", $conditions, $order_column="file_id", $order_type="asc")
 	{
@@ -45,6 +60,11 @@ class DdlApi
 		 // strtolower(str_replace(" ", "-", ""."file.file_name"))
 
 		 $name = strtolower(str_replace("'", "", str_replace(" ", "-", $data['file_name'])));
+
+		 if (!isset($data['file_download']))
+		 {
+		 	return $data;
+		 }
 
 		 if ($name == $file)
 		 {

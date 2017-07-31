@@ -14,20 +14,21 @@
       @foreach ($data as $row)
 	      <tr>
 	      <?php
-					$type 	= $row["category_type"];
-					$folder = strtolower(str_replace(" ", "-", $row['category_folder']));
-					if ($type == 0)
-					{
-						$row["category_type"] = '[TV/WEB]';
-					}
-					else
-					{
-						$row["category_type"] = '[BD/DVD]';
-					}
+	        $file = strtolower(str_replace("'", "", str_replace(" ",  "-", $row["file_name"])));
+					$unit = substr($row['file_size'], -2);
+           if ($unit == 'MB')
+           {
+               $size = str_replace('MB', ' MB', $row['file_size']);
+           }
+           else
+           {
+               $size = str_replace('GB', ' GB', $row['file_size']);
+           }
+
 	      ?>
-	      	<td style="border: 0px;" width="5%" class="text-right">{{ $no }}</td>
-	      	<td style="border: 0px;" width="10%" class="text-right">{{ $row["category_type"]}}</td>
-	      	<td style="border: 0px;" width="90%"><a href="{{ secure_url('ddl/category/'.$row['category_id'].'/'.$folder)}}">{{ $row['category_name']}}</a></td>
+	      	<td style="border: 0px;" width="5%" class="text-right">{{ $row['file_download'] }}x</td>
+	      	<td style="border: 0px;" width="10%" class="text-right">{{ $size}}</td>
+	      	<td style="border: 0px;" width="85%"><a href="http://moesubs.com/url/go.php?url={{ secure_url('ddl/'.$row['file_id'].'/'.$file)}}">{{ $row['file_name']}}</a></td>
 	      </tr>
 	    <?php $no++; ?>
 			@endforeach

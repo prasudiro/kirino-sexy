@@ -32,7 +32,7 @@ class XdccController extends Controller {
 	//index of kirino.sexy/Xdcc
 	public function index()
 	{
-		$data = $this->module_api->ListData(array(), 'file_id', 'desc');
+		$data = $this->module_api->ListData(array("file_id", "file_name", "file_size"), array(), 'file_id', 'desc');
 
 		return view($this->module."::index")
 					 ->with('data', $data);

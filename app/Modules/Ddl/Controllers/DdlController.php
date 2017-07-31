@@ -38,8 +38,16 @@ class DdlController extends Controller {
 	//index of kirino.sexy/ddl
 	public function index()
 	{
-		$data = $this->module_api->ListData(array(), 'file_name', 'asc');
+		$data = $this->module_api->ListCategory(array(), 'category_name', 'asc');
 		return view($this->module."::index")
+					 ->with('data', $data);
+	}
+
+	//list of files
+	public function lists($id=0, $file="")
+	{
+		$data = $this->module_api->ListData(array('file_category' => $id), 'file_name', 'asc');
+		return view($this->module."::lists")
 					 ->with('data', $data);
 	}
 
