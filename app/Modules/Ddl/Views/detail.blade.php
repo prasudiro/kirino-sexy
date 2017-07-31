@@ -6,7 +6,9 @@
 
 @section('content')
 <?php
- $unit = substr($data['file_size'], -2);
+ $folder   = strtolower(str_replace(" ", "-", $data['category_folder']));
+ $category = str_replace(")", "", str_replace("(", "", substr($data['category_folder'], -4)));
+ $unit     = substr($data['file_size'], -2);
  if ($unit == 'MB')
  {
 	$data['file_size'] = str_replace('MB', ' MB', $data['file_size']);
@@ -33,7 +35,7 @@
 	  <br>
 	  <h4><b>Informasi berkas:</b></h3>
 	    <ul style="line-height:26px;">
-	    <li><b>Anime:</b> {{ $data["category_folder"]}}</li>
+	    <li><b>Anime:</b> <a title="{{ $data['category_name'].' ('.$category.')'}}" href="{{ secure_url('ddl/category/'.$data['category_id'].'/'.$folder)}}">{{ $data["category_folder"]}}</a></li>
 	    <li><b>Ukuran:</b> {{ $data["file_size"]}}</li>
 			<li><b>Tipe:</b> {{ $data["category_type"]}}</li>
 	    <li><b>Download:</b> {{ $data["file_download"]}}</li>

@@ -14,8 +14,9 @@
       @foreach ($data as $row)
 	      <tr>
 	      <?php
-					$type 	= $row["category_type"];
-					$folder = strtolower(str_replace(" ", "-", $row['category_folder']));
+	        $category = str_replace(")", "", str_replace("(", "", substr($row['category_folder'], -4)));
+					$type 	  = $row["category_type"];
+					$folder   = strtolower(str_replace(" ", "-", $row['category_folder']));
 					if ($type == 0)
 					{
 						$row["category_type"] = '[TV/WEB]';
@@ -26,7 +27,7 @@
 					}
 	      ?>
 	      	<td style="border: 0px;" width="5%" class="text-right">{{ $no }}</td>
-	      	<td style="border: 0px;" width="10%" class="text-right">{{ $row["category_type"]}}</td>
+	      	<td style="border: 0px;" width="10%" class="text-center">({{ $category}})</td>
 	      	<td style="border: 0px;" width="90%"><a href="{{ secure_url('ddl/category/'.$row['category_id'].'/'.$folder)}}">{{ $row['category_name']}}</a></td>
 	      </tr>
 	    <?php $no++; ?>
