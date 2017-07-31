@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email', 124)->unique();
             $table->string('password');
             $table->string('role')->comment('0: user | 1: staff | 2: produser')->default('0');
+            $table->integer('deleted')->default('0')->comment('0: Exist, 1: Delete');
             $table->rememberToken();
             $table->timestamps();
         });

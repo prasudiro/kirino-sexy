@@ -18,6 +18,7 @@ class CreateCategoryTable extends Migration
              $table->string('category_name');
              $table->string('category_folder');
              $table->enum('category_type', ['0', '1'])->default('0')->comment('0: TV/WEB, 1: BD/DVD');
+             $table->integer('deleted')->default('0')->comment('0: Exist, 1: Delete');
              $table->integer('created_by')->default('1');
              $table->integer('updated_by')->default('1');
              $table->timestamps();
