@@ -9,11 +9,3 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 .env
-/config
-/database
-/app
-/storage
-/tests
-/database/*
-/database/seeds/*
-/database/migrations/*
