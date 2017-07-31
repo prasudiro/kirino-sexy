@@ -32,30 +32,34 @@ class DdlController extends Controller {
 	//redirect all errors route to 404
 	public function errors()
 	{
-		return view('errors.404');
+		return redirect('/')->with('msg_error', '<b style="line-height:30px;">BA-BAKA! Bukan berarti tautannya benar!</b>');
 	}
 
 	//index of kirino.sexy/ddl
-	public function index()
+	public function index($select="*")
 	{
-		$data = $this->module_api->ListCategory(array(), 'category_name', 'asc');
+		$data = $this->module_api->ListCategory($select, array(), 'category_name', 'asc');
+
 		return view($this->module."::index")
 					 ->with('data', $data);
 	}
 
 	//list of files
-	public function lists($id=0, $file="")
+	public function lists($id=0, $file="", $select="*")
 	{
-		$data = $this->module_api->ListData(array('file_category' => $id), 'file_name', 'asc');
+		$data 		= $this->module_api->ListData($select, array('file_category' => $id), 'file_name', 'asc');
+		$category = $this->module_api->GetCategory($select, array('category_id' => $id));
+
 		return view($this->module."::lists")
-					 ->with('data', $data);
+					 ->with('data', $data)
+					 ->with('category', $category);
 	}
 
 	//detail file of kirino.sexy/ddl/id
-	public function show($id="", $file="")
+	public function show($id="", $file="", $select="*")
 	{
 		$conditions = array("file_id" => $id);
-		$data 			= $this->module_api->GetData($id, $file, $conditions, 'file_name', 'asc');
+		$data 			= $this->module_api->GetData($select, $id, $file, $conditions, 'file_name', 'asc');
 
 		if (!isset($_SERVER['HTTP_REFERER']))
 		{

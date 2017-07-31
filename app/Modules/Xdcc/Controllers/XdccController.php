@@ -29,13 +29,30 @@ class XdccController extends Controller {
 	  $this->module_api   = new XdccApi();
 	}
 
+	//redirect all errors route to 404
+	public function errors()
+	{
+		return redirect('/')->with('msg_error', '<b style="line-height:30px;">BA-BAKA! Bukan berarti tautannya benar!</b>');
+	}
+
 	//index of kirino.sexy/Xdcc
 	public function index()
 	{
-		$data = $this->module_api->ListData(array("file_id", "file_name", "file_size"), array(), 'file_id', 'desc');
+		$data = $this->module_api->ListCategory(array(), 'category_name', 'asc');
 
 		return view($this->module."::index")
 					 ->with('data', $data);
+	}
+
+	//list of files
+	public function lists($id=0, $file="", $select="*")
+	{
+		$data 		= $this->module_api->ListData($select, array('file_category' => $id), 'file_name', 'asc');
+		$category = $this->module_api->GetCategory(array('category_id' => $id));
+		
+		return view($this->module."::lists")
+					 ->with('data', $data)
+					 ->with('category', $category);
 	}
 
 }
