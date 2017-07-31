@@ -14,4 +14,6 @@ npm-debug.log
 /app
 /storage
 /tests
-/database
+/database/*
+/database/seeds/*
+/database/migrations/*
