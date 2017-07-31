@@ -1,6 +1,0 @@
-*.sqlite
-*.*
-*
-/seeds
-/migrations
-/factories
