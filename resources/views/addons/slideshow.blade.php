@@ -37,13 +37,20 @@ window.addEventListener('load', function() {
       // Images (in the format of 'url': 'alignment').
         images: {
           // 'assets/images/bg01.jpg': 'center',
-          @for ($i = 2; $i < 17; $i++)
-            '{{ secure_url('assets/img/bg'.$i.'.jpg')}}': 'center',
-          @endfor
+          @php
+            $x=2;
+            $y=28;
+            $a=rand($x,$y);
+            $b=rand($x,$y);
+            $c=rand($x,$y);
+          @endphp
+          '{{ secure_url('assets/img/bg'.$a.'.jpg')}}': 'center',
+          '{{ secure_url('assets/img/bg'.$b.'.jpg')}}': 'center',
+          '{{ secure_url('assets/img/bg'.$c.'.jpg')}}': 'center',
         },
 
       // Delay.
-        delay: 3500
+        delay: 5000
 
     };
 
