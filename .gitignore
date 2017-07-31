@@ -9,10 +9,10 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 .env
-.lock
+*.lock
 artisan
-.example
-.xml
+*.example
+*.xml
 /config
 /database
 /app
