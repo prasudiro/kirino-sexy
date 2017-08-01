@@ -65,4 +65,17 @@ class XdccApi
 		return $data;
 	}
 
+	//convert bytes to kb, mb, gb
+	function bytesToString($total_size)
+	{
+    if ($total_size < 1024) //dealing with bytes
+            return $total_size . " bytes";
+    elseif ($total_size < 1048576) //dealing with kilobytes
+            return round($total_size/1024, 2) . " KB";
+    elseif ($total_size < 1073741824) //dealing with megabytes
+            return round($total_size/1048576, 2) . " MB";
+    elseif ($total_size >= 1073741824) //dealing with gigabytes
+            return round($total_size/1073741824, 2) . " GB";
+	}
+
 }

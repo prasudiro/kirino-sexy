@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use XdccApi;
+use File;
 
 class XdccController extends Controller {
 
@@ -40,8 +41,23 @@ class XdccController extends Controller {
 	{
 		$data = $this->module_api->ListCategory(array(), 'category_name', 'asc');
 
+		$path 		 = '/data1/upload';
+		$file_size = 0;
+
+			if(File::exists($path)) 
+			{
+		    foreach( File::allFiles($path) as $file)
+		    {
+		        $file_size += $file->getSize();
+		    }
+		    $file_size = $file_size;
+			}
+
+		$usage = $this->module_api->bytesToString($file_size);
+
 		return view($this->module."::index")
-					 ->with('data', $data);
+					 ->with('data', $data)
+					 ->with('usage', $usage);
 	}
 
 	//list of files
@@ -49,10 +65,25 @@ class XdccController extends Controller {
 	{
 		$data 		= $this->module_api->ListData($select, array('file_category' => $id), 'file_name', 'asc');
 		$category = $this->module_api->GetCategory(array('category_id' => $id));
-		
+
+		$path 		 = '/data1/upload/'.$category['category_folder'];
+		$file_size = 0;
+
+			if(File::exists($path)) 
+			{
+		    foreach( File::allFiles($path) as $file)
+		    {
+		        $file_size += $file->getSize();
+		    }
+		    $file_size = $file_size;
+			}
+
+		$usage = $this->module_api->bytesToString($file_size);
+
 		return view($this->module."::lists")
 					 ->with('data', $data)
-					 ->with('category', $category);
+					 ->with('category', $category)
+					 ->with('usage', $usage);
 	}
 
 }
