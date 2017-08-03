@@ -1079,6 +1079,8 @@
 		transition: opacity 0.5s ease-in-out;
 		color: rgba(255, 255, 255, 0.5);
 		opacity: 0.5;
+		top: 0;
+		margin-left: -50px;
 	}
 
 		#footer .icons {

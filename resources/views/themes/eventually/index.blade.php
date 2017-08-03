@@ -55,10 +55,8 @@
 		<div>
 				@yield('content')
 		</div>
-
-		<nav class="navbar navbar-inverse navbar-fixed-bottom" style="padding:50px; background:transparent; border:0px;">
+		
 				@include('themes.eventually.html.footer')
-		</nav>
 
 		<!-- Scripts -->
 		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
