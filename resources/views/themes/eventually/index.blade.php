@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 
     <!-- Style CSS -->
-    <link rel="stylesheet" href="{{ secure_url('assets/css/style.css') }}" />
+    <link rel="stylesheet" href="{{ secure_url('assets/css/style.css') }}?version=51" />
 		<link rel="stylesheet" href="{{ secure_url('assets/css/addon.css') }}" />
 		<link rel="stylesheet" href="{{ secure_url('assets/css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ secure_url('assets/css/font-awesome.min.css') }}">
