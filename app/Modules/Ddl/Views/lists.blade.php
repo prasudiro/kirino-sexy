@@ -12,7 +12,8 @@
 	<span class="text-muted">
 		<b class="text-muted">Total:</b>  {{ count($data)}} berkas ({{ $usage}}) | 
 		<b class="text-muted">Anime:</b> {{ $category['category_folder']}} | 
-		<b class="text-muted">Diperbarui:</b> {{ date('d M Y H:i', strtotime($category['updated_at']))}}
+		<b class="text-muted">Diperbarui:</b> {{ date('d M Y H:i', strtotime($category['updated_at']))}} | 
+		<b class=""><a data-toggle="modal" data-target="#myModal{{ $category['category_id']}}" style="cursor: pointer;"><i class="fa fa-download text-muted"></a></i></b>
 	</span>
 </p>
 	  <table class="table table-responsive footable" data-page-size="10000" id="calls_table" data-sort="true" data-filtering="true" data-empty="Berkas tidak ditemukan" data-filter="#pencarian" style="width:100%; ">
@@ -45,6 +46,17 @@
 </table>
 </div>
 
-
-
+<div class="modal fade" id="myModal{{ $category['category_id'] }}" role="dialog">
+	<center>
+	  <div class="modal-dialog">
+	    <div class="modal-content" style="width:100% !important;">
+	      <div class="modal-body" style="text-align:left; color: black;">
+	      	@foreach($data as $row2)
+					&lt;a href=&quot;http://moesubs.com/url/go.php?url={{ secure_url('ddl/'.$row['file_id'].'/'.$file)}}&quot; target=&quot;_blank&quot;&gt;{{ $row['file_name']}}&lt;/a&gt;<br>
+					@endforeach
+				</div>
+			</div>
+		</div>
+	</center>
+	</div>
 @endsection

@@ -36,7 +36,7 @@
 			    -webkit-appearance: searchfield-cancel-button;
 			  }
 			.modal-backdrop {
-				z-index: 1 !important;
+				z-index: -1 !important;
 			}
 			.modal-content {
 				width:300px !important;
