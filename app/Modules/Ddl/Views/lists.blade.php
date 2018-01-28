@@ -52,7 +52,8 @@
 	    <div class="modal-content" style="width:100% !important;">
 	      <div class="modal-body" style="text-align:left; color: black;">
 	      	@foreach($data as $row2)
-					&lt;a href=&quot;http://moesubs.com/url/go.php?url={{ secure_url('ddl/'.$row['file_id'].'/'.$file)}}&quot; target=&quot;_blank&quot;&gt;{{ $row['file_name']}}&lt;/a&gt;<br>
+<?php $file2 = strtolower(str_replace("'", "", str_replace(" ",  "-", $row2["file_name"]))); ?>
+					&lt;a href=&quot;http://moesubs.com/url/go.php?url={{ secure_url('ddl/'.$row2['file_id'].'/'.$file2)}}&quot; target=&quot;_blank&quot;&gt;{{ $row2['file_name']}}&lt;/a&gt;<br>
 					@endforeach
 				</div>
 			</div>
